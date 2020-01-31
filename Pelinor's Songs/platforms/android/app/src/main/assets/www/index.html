@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″>
+	<meta charset="utf-8"/>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<meta http-equiv="Content-Security-Policy" 
+         content="default-src * blob:; 
+                  style-src * 'self' 'unsafe-inline' 'unsafe-eval'; 
+                  script-src * 'self' 'unsafe-inline' 'unsafe-eval';">
+	<title>Formulário</title>
+	<style type="text/css">
+		html, body{
+			margin: 0;
+			padding: 0;
+		}
+		.bgTop{
+			position: absolute;
+			width: 100%;
+			height: 20%;
+			background-color: #006a6a;
+		}
+		.bgBot{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-color: #fffbe2;
+		}
+		.formulario-wrapper{
+			text-align: center;
+			max-width: 100%;
+			width: 100%;
+			height: 80%;
+			top: 20%;
+			padding: 5px;
+			position: absolute;
+			overflow: scroll;
+		}
+		.button {
+			background-color: #4CAF50; /* Green */
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+		}
+		label{
+			padding: 0 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="bgBot"></div>
+	<div class="bgTop">
+		<button class="button" onclick="mydownload();">Download</button>
+		<button class="button" onclick="modallimpar();">Limpar</button>
+		
+	</div>
+	<div class="formulario-wrapper">
+		<div>
+			<br><label>Nome completo do entrevistado:</label><br>
+			<input id="nomeInput" type="" name="">
+		</div>
+
+		<div>
+			<br><label>Estado Civil</label><br>
+			<select id="estadoCivilInput">
+				<option value="Solteiro">Solteiro</option>
+				<option value="Casado">Casado</option>
+				<option value="UnEs">UnEs</option>
+				<option value="Viúvo">Viúvo</option>
+				<option value="Sepd">Sepd</option>
+				<option value="Divorciado">Divorciado</option>
+			</select>
+		</div>
+
+		<div>
+			<br><label>Quantas pessoas moram com você?</label><br>
+			<select id="quantidadePessoasInput">
+				<option value="0">0</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="Acima de 5">Acima de 5</option>
+			</select>
+		</div>
+
+		<div>
+			<br><label>Tem filhos? Outros?</label><br>
+			<select id="filhosInput">
+				<option value="Sim">Sim</option>
+				<option value="Não">Não</option>
+				<option value="Enteados">Enteados</option>
+				<option value="Sobrinhos">Sobrinhos</option>
+				<option value="Afilhados">Afilhados</option>
+			</select>
+		</div>
+
+		<div>
+			<br><label>Quantos da casa trabalham?</label><br>
+			<select id="quantosTrabalhamInput">
+				<option value="0">0</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="Acima de 5">Acima de 5</option>
+			</select>
+		</div>
+
+		<div>
+			<br><label>Trabalha:</label><br>
+			<select id="trabalhaInput">
+				<option value="Sim">Sim</option>
+				<option value="Não">Não</option>
+			</select>
+		</div>
+
+		<div>
+			<br><label>SE SIM, trabalha em qual Empresa?</label><br>
+			<input id="nomEmpresaInput" type="" name="">
+		</div>
+
+		<div>
+			<br><label>Qual a sua função ou atividade:</label><br>
+			<input id="funcaoAtividadeInput" type="" name="">
+		</div>
+
+		<div>
+			<br><label>Renda familiar</label><br>
+			<select id="rendaFamiliarInput">
+				<option value="Menos de 1 salário">Menos de 1 salário</option>
+				<option value="1 salário">1 salário</option>
+				<option value="1 salário e 1/2">1 salário e 1/2</option>
+				<option value="2 salários">2 salários</option>
+				<option value="2 salários e 1/2">2 salários e 1/2</option>
+				<option value="Até 3 salários">Até 3 salários</option>
+				<option value="Acima de 3 salários">Acima de 3 salários</option>
+			</select>
+		</div>
+
+		<div>
+			<br><label>Nível de escolaridade:</label><br>
+			<select id="escolaridadeInput">
+				<option value="Ensino Fundamental I completo">Ensino Fundamental I completo</option>
+				<option value="EFI incompleto">EFI incompleto</option>
+				<option value="Ensino Fundamental II completo">Ensino Fundamental II completo</option>
+				<option value="EFII incompleto">EFII incompleto</option>
+				<option value="Ensino Médio completo">Ensino Médio completo</option>
+				<option value="EM incompleto">EM incompleto</option>
+				<option value="Ensino Superior completo">Ensino Superior completo</option>
+				<option value="ES incompleto">ES incompleto</option>
+				<option value="Ensino Técnico/EP (tecnológo)">Ensino Técnico/EP (tecnológo)</option>
+				<option value="Especialização">Especialização</option>
+				<option value="Mestrado">Mestrado</option>
+				<option value="Doutorado">Doutorado</option>
+			</select>
+		</div>
+
+		<div>
+			<br><label>Está cursando:</label><br>
+			<input id="cursandoInput" type="" name="">
+		</div>
+
+		<div>
+			<br><label>Possui algum problema de saúde que necessita de atenção especial?</label><br>
+			<select id="problemaSaudeInput">
+				<option value="Sim">Sim</option>
+				<option value="Não">Não</option>
+			</select>
+		</div>
+
+		<div>
+			<br><label>SE SIM, Qual o problema de saúde?</label><br>
+			<input id="qualProblemaSaudeInput" type="" name="">
+		</div>
+
+		<div>
+			<br><label>Ingere algum medicamento de uso contínuo?</label><br>
+			<select id="medicamentoInput">
+				<option value="Sim">Sim</option>
+				<option value="Não">Não</option>
+			</select>
+		</div>
+
+		<div>
+			<br><label>Faz algum tratamento de saúde?</label><br>
+			<select id="tratamentoInput">
+				<option value="Sim">Sim</option>
+				<option value="Não">Não</option>
+			</select>
+		</div>
+
+		<div>Você possui em casa quais desses recursos?</div>
+		<div>
+			<label>Computador</label><br>
+			<select id="possuiComputadorInput">
+				<option value="Sim">Sim</option>
+				<option value="Não">Não</option>
+			</select>
+		</div>
+		<div>
+			<br><label>Rádio</label><br>
+			<select id="possuiRadioInput">
+				<option value="Sim">Sim</option>
+				<option value="Não">Não</option>
+			</select>
+		</div>
+		<div>
+			<br><label>Televisão</label><br>
+			<select id="possuiTelevisaoInput">
+				<option value="Sim">Sim</option>
+				<option value="Não">Não</option>
+			</select>
+		</div>
+		<div>
+			<br><label>Tablet</label><br>
+			<select id="possuiTabletInput">
+				<option value="Sim">Sim</option>
+				<option value="Não">Não</option>
+			</select>
+		</div>
+		<div>
+			<br><label>Notebook</label><br>
+			<select id="possuiNotebookInput">
+				<option value="Sim">Sim</option>
+				<option value="Não">Não</option>
+			</select>
+		</div>
+		<div>
+			<br><label>Telefone Fixo</label><br>
+			<select id="possuiTelefoneFixoInput">
+				<option value="Sim">Sim</option>
+				<option value="Não">Não</option>
+			</select>
+		</div>
+		<div>
+			<br><label>Celular</label><br>
+			<select id="possuiCelularInput">
+				<option value="Sim">Sim</option>
+				<option value="Não">Não</option>
+			</select>
+		</div>
+		<div>
+			<br><label>Você tem acesso à internet?</label><br>
+			<select id="acessoInternetInput">
+				<option value="Sim">Sim</option>
+				<option value="Não">Não</option>
+			</select>
+		</div>
+		<div>
+			<br><label>Tem e-mail?</label><br>
+			<select id="emailInput">
+				<option value="Sim">Sim</option>
+				<option value="Não">Não</option>
+			</select>
+		</div>
+
+
+		<div>
+			<br><label>Contato: e-mail? Telefone? Celular?</label><br>
+			<input id="contatoInput" type="" name="">
+		</div>
+
+		<br><br>
+		<button class="button" onclick="salvar();">Salvar</button>
+		<br><br><br><br><br>
+	</div>
+
+	<div id="modallimpar" style="display: none; position: fixed; width: 100%; height: 100%; background-color: rgba(0, 0, 0, .5);">
+		<div style="position: absolute; width: 300px; /* height: 150px; */ padding: 10px 0; background-color: white; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+			<div style="text-align: center;">
+				<label>Deseja mesmo limpar os dados?</label>
+				<button class="button" onclick="limpar();">Sim</button>
+				<button class="button" onclick='document.getElementById("modallimpar").style.display = "none";'>Não</button>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript" src="cordova.js"></script>
+
+<script type="text/javascript">
+	function salvar(){
+		var respostas = localStorage.getItem("respostas");
+		if(!respostas)
+			respostas = [];
+		else
+			respostas = JSON.parse(respostas);
+		respostas[respostas.length] = {
+			"nomeInput": document.getElementById("nomeInput").value,
+			"estadoCivilInput": document.getElementById("estadoCivilInput").value,
+			"quantidadePessoasInput": document.getElementById("quantidadePessoasInput").value,
+			"filhosInput": document.getElementById("filhosInput").value,
+			"quantosTrabalhamInput": document.getElementById("quantosTrabalhamInput").value,
+			"trabalhaInput": document.getElementById("trabalhaInput").value,
+			"nomEmpresaInput": document.getElementById("nomEmpresaInput").value,
+			"funcaoAtividadeInput": document.getElementById("funcaoAtividadeInput").value,
+			"rendaFamiliarInput": document.getElementById("rendaFamiliarInput").value,
+			"escolaridadeInput": document.getElementById("escolaridadeInput").value,
+			"cursandoInput": document.getElementById("cursandoInput").value,
+			"problemaSaudeInput": document.getElementById("problemaSaudeInput").value,
+			"qualProblemaSaudeInput": document.getElementById("qualProblemaSaudeInput").value,
+			"medicamentoInput": document.getElementById("medicamentoInput").value,
+			"tratamentoInput": document.getElementById("tratamentoInput").value,
+			"possuiComputadorInput": document.getElementById("possuiComputadorInput").value,
+			"possuiRadioInput": document.getElementById("possuiRadioInput").value,
+			"possuiTelevisaoInput": document.getElementById("possuiTelevisaoInput").value,
+			"possuiTabletInput": document.getElementById("possuiTabletInput").value,
+			"possuiNotebookInput": document.getElementById("possuiNotebookInput").value,
+			"possuiTelefoneFixoInput": document.getElementById("possuiTelefoneFixoInput").value,
+			"possuiCelularInput": document.getElementById("possuiCelularInput").value,
+			"acessoInternetInput": document.getElementById("acessoInternetInput").value,
+			"emailInput": document.getElementById("emailInput").value,
+			"contatoInput": document.getElementById("contatoInput").value,
+		};
+		console.log(respostas);
+		localStorage.setItem("respostas", JSON.stringify(respostas));
+	}
+	function mydownload(){
+		var CSV = '\uFEFF"Nome completo do entrevistado:";'+
+		'"Quantas pessoas moram com você?";'+
+		'"Tem filhos? Outros?";'+
+		'"Quantos da casa trabalham?";'+
+		'"Trabalha:";'+
+		'"SE SIM, trabalha em qual Empresa?";'+
+		'"Qual a sua função ou atividade:";'+
+		'"Renda Familiar";'+
+		'"Nível de escolaridade:";'+
+		'"Está cursando:";'+
+		'"Possui algum problema de saúde que necessita de atenção especial?";'+
+		'"SE SIM, Qual o problema de saúde?";'+
+		'"Ingere algum medicamento de uso contínuo?";'+
+		'"Faz algum tratamento de saúde?";'+
+		'"Computador";'+
+		'"Rádio";'+
+		'"Televisão";'+
+		'"Tablet";'+
+		'"Notebook";'+
+		'"Telefone Fixo";'+
+		'"Celular";'+
+		'"Você tem acesso à internet?";'+
+		'"Tem e-mail?";'+
+		'"Contato: e-mail? Telefone? Celular?";'+'\n';
+
+		var respostas = localStorage.getItem("respostas");
+		if(!respostas)
+			respostas = [];
+		else
+			respostas = JSON.parse(respostas);
+
+		for (var i = 0; i < respostas.length; i++) {
+			CSV += '"' + respostas[i]["nomeInput"] + '";';
+			CSV += '"' + respostas[i]["estadoCivilInput"] + '";';
+			CSV += '"' + respostas[i]["quantidadePessoasInput"] + '";';
+			CSV += '"' + respostas[i]["filhosInput"] + '";';
+			CSV += '"' + respostas[i]["quantosTrabalhamInput"] + '";';
+			CSV += '"' + respostas[i]["trabalhaInput"] + '";';
+			CSV += '"' + respostas[i]["nomEmpresaInput"] + '";';
+			CSV += '"' + respostas[i]["funcaoAtividadeInput"] + '";';
+			CSV += '"' + respostas[i]["rendaFamiliarInput"] + '";';
+			CSV += '"' + respostas[i]["escolaridadeInput"] + '";';
+			CSV += '"' + respostas[i]["cursandoInput"] + '";';
+			CSV += '"' + respostas[i]["problemaSaudeInput"] + '";';
+			CSV += '"' + respostas[i]["qualProblemaSaudeInput"] + '";';
+			CSV += '"' + respostas[i]["medicamentoInput"] + '";';
+			CSV += '"' + respostas[i]["tratamentoInput"] + '";';
+			CSV += '"' + respostas[i]["possuiComputadorInput"] + '";';
+			CSV += '"' + respostas[i]["possuiRadioInput"] + '";';
+			CSV += '"' + respostas[i]["possuiTelevisaoInput"] + '";';
+			CSV += '"' + respostas[i]["possuiTabletInput"] + '";';
+			CSV += '"' + respostas[i]["possuiNotebookInput"] + '";';
+			CSV += '"' + respostas[i]["possuiTelefoneFixoInput"] + '";';
+			CSV += '"' + respostas[i]["possuiCelularInput"] + '";';
+			CSV += '"' + respostas[i]["acessoInternetInput"] + '";';
+			CSV += '"' + respostas[i]["emailInput"] + '";';
+			CSV += '"' + respostas[i]["contatoInput"] + '";\n';
+		}
+
+		window.URL = window.webkitURL || window.URL;
+
+		var contentType = "text/csv;charset=utf-8";
+
+		var csvFile = new Blob([CSV], { type: "text/csv;charset=utf-8" });
+		download(csvFile);
+		/*var a = document.createElement('a');
+		a.download = 'my.csv';
+		a.href = window.URL.createObjectURL(csvFile);
+		a.textContent = 'Download CSV';
+
+		a.dataset.downloadurl = [contentType, a.download, a.href].join(':');
+		document.body.appendChild(a);
+		a.style.display = "block";
+		a.click();*/
+	}
+
+	function limpar(){
+		localStorage.setItem("respostas", "");
+		document.getElementById("modallimpar").style.display = "none";
+	}
+	function modallimpar(){
+		document.getElementById("modallimpar").style.display = "block";
+	}
+</script>
+<script type="text/javascript">
+function download(YOUR_FILE_HERE){
+	var storageLocation = "";
+	console.log(device.platform);
+	switch (device.platform) {
+
+		case "Android":
+		    storageLocation = 'file:///storage/emulated/0/';
+	        break;
+	    case "iOS":
+	        storageLocation = cordova.file.documentsDirectory;
+	        break;
+
+	}
+
+	window.resolveLocalFileSystemURL(storageLocation,
+	    function (fileSystem) {
+
+	        fileSystem.getDirectory('Download', {
+	                create: true,
+	                exclusive: false
+	            },
+	            function (directory) {
+
+	                //You need to put the name you would like to use for the file here.
+	                directory.getFile("forms.csv", {
+	                        create: true,
+	                        exclusive: false
+	                    },
+	                    function (fileEntry) {
+							fileEntry.createWriter(function (writer) {
+								writer.onwriteend = function () {
+									console.log("File written to downloads")
+	                            };
+	                            writer.seek(0);
+	                            writer.write(YOUR_FILE_HERE); //You need to put the file, blob or base64 representation here.
+	                        }, errorCallback);
+	                    }, errorCallback);
+	            }, errorCallback);
+	    }, errorCallback);
+
+	var errorCallback = function(e) {
+	    console.log("Error: " + e)
+	}
+}
+</script>
+<script type="text/javascript">
+/*	"use strict";
+
+	if (window.cordova && cordova.platformId !== "browser") {
+	  document.addEventListener("deviceready", function () {
+	    document.addEventListener("click", function (e) {
+	      var elem = e.target;
+
+	      while (elem != document) {
+	        if (elem.tagName === "A" && elem.hasAttribute("download")) {
+	          e.preventDefault();
+
+	          if (elem.getAttribute("href").slice(0, 5) === "data:") {
+	            var blob = dataURItoBlob(elem.getAttribute("href"));
+	            download(elem.getAttribute("download"), blob, blob.type);
+	          } else {
+	            fetch(elem.getAttribute("href"))
+	              .then(function (response) {
+	                return response.blob();
+	              })
+	              .then(function (blob) {
+	                return download(elem.getAttribute("download"), blob, blob.type);
+	              });
+	          }
+
+	          return;
+	        }
+
+	        elem = elem.parentNode;
+	      }
+	    });
+	  })
+	}
+
+	function download(filename, data, mimeType) {
+	  var blob = new Blob([data], {
+	    type: mimeType
+	  });
+	  if (window.cordova && cordova.platformId !== "browser") {
+	    document.addEventListener("deviceready", function() {
+	      var storageLocation = "";
+
+	      switch (device.platform) {
+	        case "Android":
+	          storageLocation = cordova.file.externalDataDirectory;
+	          break;
+
+	        case "iOS":
+	          storageLocation = cordova.file.documentsDirectory;
+	          break;
+	      }
+
+	      var folderPath = storageLocation;
+
+	      window.resolveLocalFileSystemURL(
+	        folderPath,
+	        function(dir) {
+	          dir.getFile(
+	            filename,
+	            {
+	              create: true
+	            },
+	            function(file) {
+	              file.createWriter(
+	                function(fileWriter) {
+	                  fileWriter.write(blob);
+
+	                  fileWriter.onwriteend = function() {
+	                    var url = file.toURL();
+	                    cordova.plugins.fileOpener2.open(url, mimeType, {
+	                      error: function error(err) {
+	                        console.error(err);
+	                        alert("Unable to download");
+	                      },
+	                      success: function success() {
+	                        console.log("success with opening the file");
+	                      }
+	                    });
+	                  };
+
+	                  fileWriter.onerror = function(err) {
+	                    alert("Unable to download");
+	                    console.error(err);
+	                  };
+	                },
+	                function(err) {
+	                  // failed
+	                  alert("Unable to download");
+	                  console.error(err);
+	                }
+	              );
+	            },
+	            function(err) {
+	              alert("Unable to download");
+	              console.error(err);
+	            }
+	          );
+	        },
+	        function(err) {
+	          alert("Unable to download");
+	          console.error(err);
+	        }
+	      );
+	    });
+	  } else {
+	    saveAs(blob, filename);
+	  }
+	}
+
+	function dataURItoBlob(dataURI) {
+	  var isBase64 = dataURI.split(",")[0].split(";")[1] === "base64";
+	  var byteString;
+
+	  if (isBase64) {
+	    // convert base64 to raw binary data held in a string
+	    // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
+	    byteString = atob(dataURI.split(",")[1]);
+	  } else {
+	    byteString = dataURI.split(",")[1];
+	  } // separate out the mime component
+
+	  var mimeString = dataURI
+	    .split(",")[0]
+	    .split(":")[1]
+	    .split(";")[0]; // write the bytes of the string to an ArrayBuffer
+
+	  var ab = new ArrayBuffer(byteString.length); // create a view into the buffer
+
+	  var ia = new Uint8Array(ab); // set the bytes of the buffer to the correct values
+
+	  for (var i = 0; i < byteString.length; i++) {
+	    ia[i] = byteString.charCodeAt(i);
+	  } // write the ArrayBuffer to a blob, and you're done
+
+	  var blob = new Blob([ab], {
+	    type: mimeString
+	  });
+	  return blob;
+	};*/
+</script>
+</html>

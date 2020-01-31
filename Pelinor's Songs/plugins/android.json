@@ -1,0 +1,25 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "br.com.sesims.suzanotacerto"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "br.com.sesims.forms"
+    },
+    "cordova-plugin-file-opener2": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "br.com.sesims.forms"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "br.com.sesims.forms"
+    }
+  },
+  "dependent_plugins": {}
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″>
+	<meta charset="utf-8"/>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<title>Pelinor's Songs</title>
+	<style type="text/css">
+		html, body{
+			margin: 0;
+			padding: 0;
+		}
+		.btn-wrapper{
+			position: absolute;
+			width: 100%;
+			height: 80%;
+			top: 20%;
+			text-align: center;
+		}
+		.btn-musica{
+			position: relative;
+			display: inline-block;
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			text-align: center;
+			overflow: hidden;
+			padding: 5px;
+			border-radius: 5px;
+		}
+		.img{
+			width: 50%;
+			height: 0;
+			padding-bottom: 50%; 
+			position: relative;
+			left: 50%;
+			transform: translate(-50%);
+			overflow: hidden;
+		}
+		.img > img{
+			width: 1000%;
+			position: absolute;
+			top: 0%;
+			left: 0%;
+		}
+		.title{
+			position: relative;
+			width: 100%;
+			height: 20%;
+		}
+		.title > img{
+			width: 100%;
+			filter: contrast(0%) brightness(0);
+		}
+		.background{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: url("bg1.jpg");
+			background-size: 100%;
+			background-color: #6d6d6d;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-position: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="background"></div>
+	<div class="title">
+		<img src="header.png">
+	</div>
+	<div class="btn-mais"></div>
+	<div id="buttons" class="btn-wrapper">
+		<div class="btn-musica">
+			<div class="img">
+				<img src="YWv3L.png">
+			</div>
+			<span>teste de um texto realmente grande.</span>
+		</div>
+	</div>
+	<div class="modal"></div>
+</body>
+
+<script type="text/javascript" src="cordova.js"></script>
+
+<script type="text/javascript">
+	var bgs = ["bg1.jpg", "bg2.jpg", "bg3.jpg", "bg4.jpg", "bg5.jpg", "bg6.jpg", "bg7.jpg", "bg8.jpg", "bg9.jpg", "bg10.jpg", "bg11.jpg", "bg12.jfif", "bg13.jpg", "bg14.jpg", "bg15.png", "bg16.jpg", "bg17.jpg", "bg18.jpg"];
+
+	var btnSize = 75;
+	var backgroundColor = "#6d6d6d";
+	var magias = [
+		{
+			imgPos: 99,
+			colorBG: "grey",
+			colorText: "#ffcf00",
+			text: "Cura",
+			sound: "algo.mp3",
+			personalized: false
+		}
+	];
+</script>
+
+<script type="text/javascript">
+	function updateBtns(){
+		document.getElementById("buttons").innerHTML = "";
+		for(let i = 0; i < magias.length; i++) {
+			var magia = magias[i];
+
+			var btnMusica = document.createElement("div");
+			btnMusica.classList.add("btn-musica");
+			btnMusica.style.backgroundColor = magia.colorBG;
+			btnMusica.style.width = btnSize + "px";
+			btnMusica.style.height = btnSize + "px";
+
+			var imgDiv = document.createElement("div");
+			imgDiv.classList.add("img");
+
+			var img = document.createElement("img");
+			img.src = "YWv3L.png";
+			img.style.top = "" + (Math.floor(magia.imgPos/10) * -100) + "%";
+			img.style.left = "" + (magia.imgPos%10 * -100);
+
+			var span = document.createElement("span");
+			span.innerHTML = magia.text;
+			span.style.color = magia.colorText;
+
+			imgDiv.appendChild(img);
+			btnMusica.appendChild(imgDiv);
+			btnMusica.appendChild(span);
+			btnMusica.onclick = ()=>{
+
+			}
+			document.getElementById("buttons").appendChild(btnMusica);
+		}
+	}updateBtns();
+</script>
+
+
